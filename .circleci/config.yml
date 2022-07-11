@@ -223,11 +223,6 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Install dependencies
-          command: |
-            # Your code here
-            exit 1
-      - run:
           name: Configure server
           command: |
             cd .circleci/ansible
