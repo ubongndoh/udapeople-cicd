@@ -60,7 +60,7 @@ commands:
           when: on_fail
           command: |
             # Curl command here to see if there was a successful migration associated with the workflow id, store result in SUCCESS variable
-            SUCCESS =$(curl --insecure  https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.Workflow_ID >>)
+            SUCCESS=$(curl --insecure  https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.Workflow_ID >>)
             # Logic for reverting the database state
             if(( $SUCCESS==1 ));
             then
@@ -221,6 +221,7 @@ jobs:
       # Add ssh keys with fingerprint
       # attach workspace
       - checkout
+      - install_awscli
       - install_ansible
       - add_ssh_keys:
           fingerprints: ["8f:1b:99:fd:b7:2d:7d:bf:ec:d2:60:25:98:e1:cd:53"]
