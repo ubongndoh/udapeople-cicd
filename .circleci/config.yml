@@ -309,19 +309,18 @@ jobs:
 
     deploy-backend:
       docker:
-        # Docker image here that supports Ansible
         - image: cimg/base:stable
       steps:
         - checkout
         - install_awscli
         - install_ansible
         - install_nodejs
-      - add_ssh_keys:
-          fingerprints: ["8f:1b:99:fd:b7:2d:7d:bf:ec:d2:60:25:98:e1:cd:53"]
-      - attach_workspace:
-          at: ~/
-      - restore_cache:
-          keys: [backend-deps]
+        - add_ssh_keys:
+            fingerprints: ["8f:1b:99:fd:b7:2d:7d:bf:ec:d2:60:25:98:e1:cd:53"]
+        - attach_workspace:
+            at: ~/
+        - restore_cache:
+            keys: [backend-deps]
         - run:
             name: Install dependencies
             command: |
