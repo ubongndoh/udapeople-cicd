@@ -338,11 +338,15 @@ jobs:
             cd ..
             # enter backend directory and Zip the directory
 
-            mv backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
+            # mv backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
             tar -C backend -czvf artifact.tar.gz .            
             cp artifact.tar.gz ~/project/.circleci/ansible/roles/deploy/files/
             ls ~/project/.circleci/ansible/roles/deploy/files/
             echo "Present working directory is -------"
+
+            cd .circleci/ansible
+            cat inventory.txt
+            ansible-playbook -i inventory.txt deploy-backend.yml
 
       - run:
           name: Deploy backend
@@ -350,9 +354,7 @@ jobs:
             export TYPEORM_MIGRATIONS_DIR=./migrations
             export TYPEORM_ENTITIES=./modules/domain/**/*.entity{.ts,.js}
             export TYPEORM_MIGRATIONS=./migrations/*.ts
-            cd .circleci/ansible
-            cat inventory.txt
-            ansible-playbook -i inventory.txt deploy-backend.yml -vv
+
       - destroy-environment
       - revert-migrations
         # Here's where you will add some code to rollback on failure
