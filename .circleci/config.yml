@@ -38,13 +38,6 @@ commands:
             sudo npm install --global n
             sudo n 13.8.0
 
-  notify_on_failure:
-    steps:
-      - slack/notify:
-          event: fail
-          channel: cicd-pipeline
-          template: basic_fail_1
-
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
     parameters:
@@ -82,6 +75,12 @@ commands:
               npm install
               npm run migration:revert
             fi
+  notify_on_failure:
+    steps:
+      - slack/notify:
+          event: fail
+          channel: cicd-pipeline
+          template: basic_fail_1
 
 jobs:
   build-frontend:
@@ -392,7 +391,7 @@ jobs:
             then
               exit 1
             else
-              exit 1
+              exit 2
             fi
       - destroy-environment
       - revert-migrations
