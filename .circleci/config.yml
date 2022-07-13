@@ -340,8 +340,8 @@ jobs:
 
             # mv backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
             tar -C backend -czvf artifact.tar.gz .            
-            cp artifact.tar.gz ~/project/.circleci/ansible/roles/deploy/files/
-            ls ~/project/.circleci/ansible/roles/deploy/files/
+            cp artifact.tar.gz ~/project/.circleci/ansible/roles/deploy/files
+            # ls ~/project/.circleci/ansible/roles/deploy/files/
             echo "Present working directory is -------"
 
             cd .circleci/ansible
