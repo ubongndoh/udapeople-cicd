@@ -2,7 +2,7 @@ Public Url to GitHub repository (not private) [URL01]
   https://github.com/ubongndoh/udapeople-cicd
 
 Public URL for your S3 Bucket (aka, your green candidate front-end) [URL02]
-  http://udapeople-6d261a5.s3-website-us-east-1.amazonaws.com
+  http://udapeople-fcf8165.s3-website-us-east-1.amazonaws.com
 
 Public URL for your CloudFront distribution (aka, your blue production front-end) [URL03]
   http://d3d2c78f599m6g.cloudfront.net
