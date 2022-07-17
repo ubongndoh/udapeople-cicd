@@ -53,7 +53,7 @@ Before you submit your project, please check your work against the project rubri
 - [Ansible](https://www.ansible.com/) - Configuration management tool
 - [Prometheus](https://prometheus.io/) - Monitoring tool
 
-### License
+## License
 
 [License](LICENSE.md)
 
